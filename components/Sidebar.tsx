@@ -10,6 +10,7 @@ import Logo from "../assets/logo.png";
 import Image from 'next/image';
 import Library from "./Library";
 import {AiOutlinePlus} from 'react-icons/ai';
+import { BiSolidHome } from "react-icons/bi";
 
 interface SidebarProps {
 	children: React.ReactNode;
@@ -22,10 +23,16 @@ const Sidebar: React.FC<SidebarProps> = ({
 
 	const routes = useMemo(() => [
 		{
-			icon: BiSolidNotification,
-			label: 'New',
+			icon: BiSolidHome,
+			label: 'Home',
 			active: pathname === '/',
 			href: '/'
+		},
+		{
+			icon: BiSolidNotification,
+			label: 'New',
+			active: pathname === '/new',
+			href: '/new'
 		},
 		{
 			icon: BiLineChart,
@@ -41,10 +48,11 @@ const Sidebar: React.FC<SidebarProps> = ({
 		},
 		{
 			icon: AiOutlinePlus,
-			label: 'AddSong',
+			label: 'Add Song',
 			active: pathname === '/add-song',
 			href: '/add-song'
 		},
+
 	], [pathname])
 
 	return (
