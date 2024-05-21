@@ -1,4 +1,4 @@
-import SearchInput from "@/components/SearchInput";
+
 import Header from "@/components/Header";
 import AudioList from "@/components/AudioList/AudioList";
 

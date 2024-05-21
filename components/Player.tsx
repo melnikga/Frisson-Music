@@ -1,32 +1,36 @@
-"use client";
-import { FaPlay } from "react-icons/fa";
-import { IoPlayForward } from "react-icons/io5";
-import { IoPlayBack } from "react-icons/io5";
+'use client';
 
+import usePlayer from '@/hooks/usePlayer';
+import useLoadSongUrl from '@/hooks/useLoadSongUrl';
+import useGetSongById from '@/hooks/useGetSongById';
+
+import PlayerContent from './PlayerContent';
 
 const Player = () => {
+  const player = usePlayer();
+  const { song } = useGetSongById(player.activeId);
+
+  const songUrl = useLoadSongUrl(song!);
+
+  if (!song || !songUrl || !player.activeId) {
+    return null;
+  }
 
   return (
-    <div 
-      className="
+    <div
+      className='
         fixed 
         bottom-0 
-        bg-white
+        bg-black 
         w-full 
         py-2 
-        h-[70px] 
+        h-[80px] 
         px-4
-				z-10
-      "
+      '
     >
-			<div className="flex justify-center items-center p-2 gap-6">
-				<IoPlayBack className="text-black hover:text-gray-600 cursor-pointer" size={35} />
-				<FaPlay className="text-black hover:text-gray-600 cursor-pointer" size={35} />
-				<IoPlayForward className="text-black hover:text-gray-600 cursor-pointer" size={35} />
-			</div>
-      
+      <PlayerContent key={songUrl} song={song} songUrl={songUrl} />
     </div>
   );
-}
+};
 
 export default Player;
