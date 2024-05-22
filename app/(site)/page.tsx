@@ -24,7 +24,7 @@ export default async function Home() {
       <Header>
         <div className="mb-2">
           <h1 className="text-black text-3xl font-semibold">
-            Welcome back
+            Start your day with Frisson
           </h1>
           <div className='
           grid
@@ -35,14 +35,14 @@ export default async function Home() {
           gap-3
           mt-4
           '>
-            <ListItem image='/images/liked.png' name='Liked Songs' href='liked'/>
+            <ListItem image='/images/heart.svg' name='Liked Songs' href='liked'/>
           </div>
         </div>
       </Header>
       <div className='mt-2 mb-7 px-6'>
         <div className='flex justify-between items-center'>
           <h1 className='text-2xl font-semibold'>
-            Newest songs
+            Recent releases
           </h1>
         </div>
         <div>

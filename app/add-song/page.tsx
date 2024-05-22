@@ -30,6 +30,10 @@ const AddSong = () => {
 							<Input title='title' className='md:w-1/2' placeholder='Type title'/>
 						</div>
 						<div className='flex flex-col gap-2'>
+							<label className='mb-2' htmlFor="title">Song author</label>
+							<Input title='title' className='md:w-1/2' placeholder='Type title'/>
+						</div>
+						<div className='flex flex-col gap-2'>
 							<label htmlFor='art' className='mb-2' >Attach the file with the cover</label>
 							<Input multiple accept="image/*,image/jpeg" title='art' type='file' className='md:w-1/2'/>
 						</div>

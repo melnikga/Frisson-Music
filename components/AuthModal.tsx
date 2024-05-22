@@ -4,7 +4,7 @@ import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-rea
 import Modal from "./Modal";
 import { useRouter } from "next/navigation";
 import {Auth} from "@supabase/auth-ui-react"
-import { ThemeSupa } from "@supabase/auth-ui-shared";
+import { ThemeSupa} from "@supabase/auth-ui-shared";
 import useAuthModal from "@/hooks/useAuthModal";
 import { useEffect } from "react";
 
@@ -36,8 +36,8 @@ const AuthModal = () => {
 			onChange={onChange}
 		>
 			<Auth
-				theme="dark"
-				providers={["google"]}
+			theme="dark"
+				providers={["google", "facebook"]}
 				magicLink
 				supabaseClient = {supabaseClient}
 				appearance={{
@@ -45,8 +45,8 @@ const AuthModal = () => {
 					variables: {
 						default:{
 							colors: {
-								brand: "#404040",
-								brandAccent: "#22c55e"
+								brand: 'black',
+								brandAccent: 'gray',
 							}
 						}
 					}
