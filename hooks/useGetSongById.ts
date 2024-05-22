@@ -8,6 +8,7 @@ const useSongById = (id?: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [song, setSong] = useState<Song | undefined>(undefined);
   const { supabaseClient } = useSessionContext();
+  console.log(supabaseClient);
 
   useEffect(() => {
     if (!id) {
