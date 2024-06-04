@@ -9,6 +9,17 @@ export interface Song {
   image_path: string;
 };
 
+export interface Playlist {
+  id: string;
+  title: string;
+  image_path: string;
+};
+
+export interface ProductWithPrice extends Product {
+  prices?: Price[];
+}
+
+
 export interface UserDetails {
 	id: string;
 	first_name: string;
@@ -16,7 +27,8 @@ export interface UserDetails {
 	full_name?: string;
 	avatar_url?: string;
 	billing_address?: Stripe.Address;
-	payment_method?: Stripe.PaymentMethod[Stripe.PaymentMethod.Type]
+	payment_method?: Stripe.PaymentMethod[Stripe.PaymentMethod.Type];
+  isAdmin?: boolean;
 }
 
 export interface Product {
@@ -60,4 +72,17 @@ export interface Subscription {
   trial_start?: string;
   trial_end?: string;
   prices?: Price;
+}
+
+export interface News {
+  id: string;
+  title: string;
+  description: string
+  image_path: string;
+}
+
+export interface Chart {
+  id: string;
+  place: number;
+  song_id: string;
 }

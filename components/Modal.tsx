@@ -52,10 +52,10 @@ const Modal: React.FC<ModalProps> = ({
 					translate-x-[-50%] 
 					translate-y-[-50%] 
 					rounded-md 
-					bg-neutral-800 
+					bg-gray-300
 					p-[25px] 
 					focus:outline-none
-					text-white
+					text-black
 				'
 					>
 						<Dialog.Title

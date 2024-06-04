@@ -2,6 +2,7 @@ import getSongs from '@/actions/getSongs';
 import Header from '@/components/Header';
 import ListItem from '@/components/ListItem';
 import PageContent from './component/PageContent';
+import Playlists from '../editor-playlists/components/Playlists';
 
 export const revalidate = 0;
 
@@ -47,6 +48,15 @@ export default async function Home() {
         </div>
         <div>
           <PageContent songs={songs}/>
+          
+        </div>
+        <div className='flex justify-between items-center mt-20'>
+          <h1 className='text-2xl font-semibold'>
+            Editor playlists
+          </h1>
+        </div>
+        <div>
+          <Playlists/>
         </div>
       </div>
     </div>

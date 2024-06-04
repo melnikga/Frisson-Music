@@ -1,8 +1,10 @@
+import useLoadNewsImage from '@/hooks/useLoadNewsImage';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
 
 function Widget({
+    data,
     picture, 
     name, 
     largeInterval=false, 
@@ -10,7 +12,7 @@ function Widget({
     center = false}: any){
 
     const [isActive, setActive] = useState(false);
-
+    const imagePath = useLoadNewsImage(data);
     const showContent = () => {
         setActive(true);
     }
@@ -23,9 +25,18 @@ function Widget({
         }
     }
     return (
-        <div onClick={showContent} className={'min-h-full rounded-[28px] bg-[#489F99] bg-opacity-[30%] transition-all ease-in-out duration-300 py-8 px-6 hover:bg-opacity-[100%] cursor-pointer ' + 
-            (largeInterval ? 'space-y-16 active:-translate-x-1/2 active:-scale-x-125 active:scale-125 active:-translate-y-1/3 last:active:-translate-y-1/3 last:active:-translate-x-[178%] widget' : 'space-y-6') }>
-            <Image className='rounded-[28px] object-cover w-full h-60' src={picture} alt="" />
+        <div onClick={showContent} className='min-h-full rounded-[28px] bg-[#489F99] bg-opacity-[30%] transition-all ease-in-out duration-300 py-8 px-6 hover:bg-opacity-[100%] cursor-pointer space-y-6'>
+            <div 
+				className="
+					relative
+					 aspect-video
+					rounded-md
+					overflow-hidden
+				"
+			>
+                <Image fill className='rounded-[28px] object-cover !h-60' src={imagePath? imagePath : ''} alt="" />
+            </div>
+            
             <h3 className={'text-3xl whitespace-pre-line ' + (center ? 'text-center' : '')}>
                 {name}
             </h3>

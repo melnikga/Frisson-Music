@@ -12,6 +12,8 @@ import Library from "./Library";
 import {AiOutlinePlus} from 'react-icons/ai';
 import { BiSolidHome } from "react-icons/bi";
 import { Song } from "@/types";
+import { twMerge } from "tailwind-merge";
+import usePlayer from "@/hooks/usePlayer";
 
 interface SidebarProps {
 	children: React.ReactNode;
@@ -23,7 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 	songs
 }) => {
 	const pathname = usePathname();
-
+  const player = usePlayer();
 	const routes = useMemo(() => [
 		{
 			icon: BiSolidHome,
@@ -59,17 +61,23 @@ const Sidebar: React.FC<SidebarProps> = ({
 	], [pathname])
 
 	return (
-		<div className="flex h-full">
+		<div className={twMerge(
+			`
+			flex 
+			h-full
+			`,
+			player.activeId && 'h-[calc(100%-80px)]'
+		)}>
 			<div
 			className="
-			md:flex
-			flex-col
-			gap-y-2
-			h-full
-			w-[300px]
+			hidden 
+			md:flex 
+			flex-col 
+			gap-y-2  
+			h-full 
+			w-[300px] 
 			p-2
-			pb-[80px]
-			hidden"
+			"
 			>
 				<Box>
 					<div
@@ -88,7 +96,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 					<Library songs={songs}/>
 				</Box>
 			</div>
-			<main className="h-full flex-1 overflow-y-auto p-2 pb-[80px]">
+			<main className="h-full flex-1 overflow-y-auto p-2">
 				{children}
 			</main>
 		</div>

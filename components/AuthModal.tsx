@@ -28,6 +28,7 @@ const AuthModal = () => {
 		}
 	}
 
+
 	return (
 		<Modal
 			title='Welcome back'

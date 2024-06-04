@@ -1,14 +1,19 @@
 
 import Header from "@/components/Header";
 import AudioList from "@/components/AudioList/AudioList";
+import ChartContent from "./components/ChartContent";
+import getChartSongs from "@/actions/getChartSongs";
+import getSongs from "@/actions/getSongs";
+import getSongsById from "@/actions/getSongById";
 
 export const revalidate = 0;
 
-interface SearchProps {
-  searchParams: { title: string }
-};
 
-const Chart = async ({ searchParams }: SearchProps) => {
+const Chart = async () => {
+
+  const chart = await getChartSongs()
+
+  const allSongs = await getSongs()
 
   return (
     <div 
@@ -29,7 +34,8 @@ const Chart = async ({ searchParams }: SearchProps) => {
         </div>
       </Header>
       <div>
-      <AudioList className=' '/>
+      
+      <ChartContent songs={allSongs} chart = {chart}/>
       </div>
     </div>
   );
